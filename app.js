@@ -8,7 +8,7 @@ function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
 
-function openHREF(event) {
+function openHRE(event) {
   event.preventDefault(); // Prevent the default behavior of following the link
   
   var button = event.target; // Get the clicked button
