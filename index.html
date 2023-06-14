@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+  <title>My Future with Technology</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <h1>Matt</h1>
+    </div>
+    <a href="#home" class="nav-link" onclick="openHREF(event)">Home</a>
+    <a href="#about" class="nav-link" onclick="openHREF(event)">About</a>
+    <a href="#contactme" class="nav-link" onclick="openHREF(event)">Contact</a>
+    <a href="#faq" class="nav-link" onclick="openHREF(event)">FAQ</a>
+  </div>
+
+  <div id="myNav" class="overlay">
+  
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="#home" onclick="openHREF(event)">Home</a>
+      <a href="#about" onclick="openHREF(event)">About</a>
+      <a href="#contactme" onclick="openHREF(event)">Contact</a>
+      <a href="#faq" onclick="openHREF(event)">FAQ</a>
+    </div>
+  
+  </div>
+  <div class="hamburger" onclick="openNav()">
+    <div class="logoh">
+      <h1>Matt</h1>
+    </div>
+
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+
+  <section class="home" id="home">
+    <div class="home-section" id="home-section">
+      <h1>My Future with Technology</h1>
+      <h2>Exploring the Boundless Potential of Technology</h2>
+    </div>
+    <div class="button-wrapper">
+      <a class="button" href="#about" onclick="openHREF(event)">Get started!</a>
+    </div>
+  </section>
+
+  <section class="about visible" id="about">
+    <div class="about-section">
+      <h1>About Me</h1>
+      <p class="my-interests">My Interests</p>
+      <div class="interests-container">
+        <div class="interest-box">
+          <img src="img/ecom.jpg" alt="Economoy">
+          <h2>Economy</h2>
+          <p>Economy plays a crucial role in shaping our society, and I have a keen interest in exploring its dynamic intersection with technology.</p>
+          <button class="view-button" onclick="showBlog('economy')">View</button>
+        </div>
+        <div class="interest-box">
+          <img src="img/logist.jpg" alt="Logistics">
+          <h2>Logistics</h2>
+          <p>Logistics is a vital component of global trade and commerce, and I am fascinated by its intricate operations and the potential for technological advancements to revolutionize the industry.</p>
+          <button class="view-button" onclick="showBlog('logistics')">View</button>
+        </div>
+        <div class="interest-box">
+          <img src="img/ai.jpg" alt="Artificial Intelligence">
+          <h2>Artificial Intelligence</h2>
+          <p>I have a keen interest in AI, because AI is a rapidly evolving field that develops intelligent systems to simulate human intelligence and perform tasks with precision and efficiency.</p>
+          <button class="view-button" onclick="showBlog('ai')">View</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="blog-section" id="blog-section">
+    <div class="blog-content">
+      <span class="close-button" onclick="hideBlog()">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" class="sc-BeQoi dPdmiI" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+        </svg>
+      </span>
+      <h2 id="blog-title"></h2>
+      <div id="blog-text"></div>
+    </div>
+  </div>
+
+  <section class="contactme" id="contactme">
+    <div class="con">
+        <div class="item">
+            <div class="contact">
+                <div class="first-text">Let's get in touch</div>
+                <img src="img/conn.png" alt="contact" class="image">
+            </div>
+            <div class="submit-form">
+                <h4 class="second-text text">Contact Me</h4>
+                <form action="">
+                    <div class="input-box">
+                        <input type="text" class="input" required>
+                        <label for="">Name</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" class="input" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <textarea name="" class="input" required id="message" cols="30" rows="10"></textarea>
+                        <label for="">Message</label>
+                    </div>
+                    <input type="submit" class="btn" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="background1"></div>
+    <h1>FAQ</h1>
+    <div class="faq">
+      <div class="question">
+        <h2>Why Economy?</h2>
+
+        <?xml version="1.0" encoding="utf-8"?><svg width="25" height="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 66.91" style="enable-background:new 0 0 122.88 66.91" xml:space="preserve"><g><path d="M11.68,1.95C8.95-0.7,4.6-0.64,1.95,2.08c-2.65,2.72-2.59,7.08,0.13,9.73l54.79,53.13l4.8-4.93l-4.8,4.95 c2.74,2.65,7.1,2.58,9.75-0.15c0.08-0.08,0.15-0.16,0.22-0.24l53.95-52.76c2.73-2.65,2.79-7.01,0.14-9.73 c-2.65-2.72-7.01-2.79-9.73-0.13L61.65,50.41L11.68,1.95L11.68,1.95z"/></g></svg>
+      </div>
+      <div class="answer">
+        <p>
+          I chose to explore the field of economy because I believe it plays a fundamental role in shaping our society.
+        </p>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="question">
+        <h2>Why Logistics?</h2>
+
+        <?xml version="1.0" encoding="utf-8"?><svg width="25" height="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 66.91" style="enable-background:new 0 0 122.88 66.91" xml:space="preserve"><g><path d="M11.68,1.95C8.95-0.7,4.6-0.64,1.95,2.08c-2.65,2.72-2.59,7.08,0.13,9.73l54.79,53.13l4.8-4.93l-4.8,4.95 c2.74,2.65,7.1,2.58,9.75-0.15c0.08-0.08,0.15-0.16,0.22-0.24l53.95-52.76c2.73-2.65,2.79-7.01,0.14-9.73 c-2.65-2.72-7.01-2.79-9.73-0.13L61.65,50.41L11.68,1.95L11.68,1.95z"/></g></svg>
+      </div>
+      <div class="answer">
+        <p>
+          I chose to delve into the field of logistics because I find its intricate operations and global impact fascinating. Logistics serves as a vital component of global trade and commerce.
+        </p>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="question">
+        <h2>Why Artificial Intelligence?</h2>
+
+        <?xml version="1.0" encoding="utf-8"?><svg width="25" height="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 66.91" style="enable-background:new 0 0 122.88 66.91" xml:space="preserve"><g><path d="M11.68,1.95C8.95-0.7,4.6-0.64,1.95,2.08c-2.65,2.72-2.59,7.08,0.13,9.73l54.79,53.13l4.8-4.93l-4.8,4.95 c2.74,2.65,7.1,2.58,9.75-0.15c0.08-0.08,0.15-0.16,0.22-0.24l53.95-52.76c2.73-2.65,2.79-7.01,0.14-9.73 c-2.65-2.72-7.01-2.79-9.73-0.13L61.65,50.41L11.68,1.95L11.68,1.95z"/></g></svg>
+      </div>
+      <div class="answer">
+        <p>
+          I chose to pursue artificial intelligence (AI) as one of my interests because it is a rapidly evolving field with immense potential to transform various aspects of our lives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-icons">
+        <a href="#" class="icons"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="icons"><i class="fab fa-github"></i></a>
+        <a href="#" class="icons"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="icons"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="footer-links">
+      <a href="#home" class="footera" onclick="openHREF(event)">Home</a>
+      <a href="#about" class="footera" onclick="openHREF(event)">About</a>
+      <a href="#contactme" class="footera" onclick="openHREF(event)">Contact</a>
+      <a href="#faq" class="footera" onclick="openHREF(event)">FAQ</a>
+      <a href="https://www.freepik.com/author/vectorjuice/" class="footera">Vectors</a>
+    </div>
+    <div class="copyright">
+      <p class="footerp">All rights reserved &#169; 2023</p>
+    </div>
+  </footer>
+  
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,933 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;900&display=swap');
+
+* {
+  font-family: 'Geologica';
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 78px;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.navbar {
+  font-family: 'Geologica', 'sans-serif';
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  z-index: 99999;
+  transition: 0.5s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translateZ(0);
+}
+
+.logo {
+  position: relative;
+  left: -450px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.logoh {
+  position: absolute;
+  bottom: 10px;
+  color: #fff;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 30px 25px;
+  font-size: 18px;
+  line-height: 1;
+  transition: 0.3s;
+}
+
+.navbar a.active {
+  box-shadow: 0 -2px 0px #6265FE inset, 500px 0 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+.navbar a:hover {
+  box-shadow: 0 -4px 0px #6265FE inset, 500px 0 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+.navbar a:hover::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 10px; /* Adjust the height of the spacer element as needed */
+  background-color: transparent; /* Adjust the background color of the spacer element as needed */
+}
+
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.nav-link.active {
+  position: relative;
+}
+
+.hamburger{
+  display: none;
+  cursor: pointer;
+  padding: 30px;
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(255, 255, 255);
+  align-items: right;
+  border-radius: 10px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.bar::before,
+.bar::after {
+  -webkit-transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  position: absolute;
+}
+
+.bar::before {
+  top: -8px;
+}
+
+.bar::after {
+  top: 8px;
+}
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgb(20, 20, 20); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.home {
+  background: url("img/rlbg1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.home-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.home-section h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.about {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}
+
+.about-section {
+  width: 80%;
+  text-align: center;
+}
+
+.about-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.interests-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.interest-box {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.interest-box:hover {
+  transform: scale(1.05);
+}
+
+.interest-box img {
+  width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.interest-box p {
+  font-size: 16px;
+  color: #777;
+}
+
+.view-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  width: 100px;
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Geologica', 'sans-serif';
+}
+
+button {
+  padding: 17px 40px;
+  border-radius: 50px;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  transition: all .5s ease;
+  font-weight: 600;
+ }
+ 
+ button:hover {
+  background-color: #6265FE;
+  color: hsl(0, 0%, 100%);
+  box-shadow: #6265FE 0px 7px 29px 0px;
+ }
+ 
+ button:active {
+  background-color: #6265FE;
+  color: hsl(0, 0%, 100%);
+  box-shadow: #6265FE 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+ }
+
+ .blog-section {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%) translateY(100%);
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.blog-content {
+  color: black;
+  width: 80%;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.blog-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #6265FE;
+}
+
+.blog-section.hide {
+  /* Apply the slide-out animation */
+  animation: slideOut 0.5s ease-in-out forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    transform: translateX(-50%) translateY(100%);
+  }
+}
+
+.con {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #6265FE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  width: 100%;
+  height: 550px;
+  max-width: 820px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 10px rgba(0,0,0,.4);
+  overflow: hidden;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  transition: .3s;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}
+
+.contact {
+  background:  #fff;
+}
+
+.submit-form {
+  background: #6265FE;
+}
+
+.first-text {
+  color: #fff;
+  padding-left: 20px;
+  padding-top: 20px;
+  top: 20px;
+  text-align: center;
+  font-size: 35px;
+  color: #6265FE;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.image {
+  height: auto;
+  width: 300px;
+  margin: 50px;
+  margin-top: 100px;
+  transition: .3s;
+}
+
+.image:hover {
+  transform: scale(1.03);
+}
+
+.second-text {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  padding-top: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+form {
+  padding: 0 50px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.input-box {
+  height: 40px;
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+}
+
+.input {
+  width: 80%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  outline: none;
+  padding-left: 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  padding-left: 10px;
+  transform: translateY(-50%);
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  transition: .3s;
+}
+
+.input-box .input:focus ~ label,
+.input-box .input:valid ~ label {
+  top: -1px;
+  background: #6265FE;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 5px;
+}
+
+textarea.input {
+  resize: none;
+  height: 150px;
+  overflow: auto;
+  padding-top: 10px;
+}
+
+.btn {
+  position: relative;
+  top: 120px;
+  background: #fff;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  height: 45px;
+  width: 50%;
+  font-size: 16px;
+  color: #6265FE;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  left: 50px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.faq-section {
+  font-family: 'Geologica', 'sans-serif';
+  background-color: white;
+  padding-top: 60px;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-image: url('img/rlbg1.svg');
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+.faq-section h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 60px;
+  color: #000;
+}
+
+.faq {
+  margin-top: 10px;
+  flex: 1; /* Let the FAQ section occupy the remaining space */
+  max-width: 1000px;
+  margin-right: 100px;
+  margin-left: 500px;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #000000;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question h2 {
+  font-size: 1.8rem;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
+}
+
+.answer p {
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.faq.active .answer {
+  max-height: 500px;
+  animation: fade 1s ease-in-out;
+}
+
+.faq.active svg {
+  transform: rotate(180deg);
+}
+
+svg {
+  transition: transform 0.5s ease-in;
+}
+
+@keyframes fade {
+  frm {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  outline: none;
+  border-color: #000000;
+  height: auto;
+  border-radius: 50px;
+  color: #fff;
+  width: 90%;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  background-color: #333;
+  transition: all .5s ease;
+}
+
+.button:hover {
+  background-color: #6265FE;
+  color: hsl(0, 0%, 100%);
+  box-shadow: #6265FE 0px 7px 29px 0px;
+  transform: scale(1.05);
+}
+
+.button:active {
+  background-color: #6265FE;
+  color: hsl(0, 0%, 100%);
+  box-shadow: #6265FE 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+footer {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-icons {
+  margin-bottom: 20px;
+}
+
+.icons {
+  color: #fff;
+}
+
+.footer-icons i {
+  font-size: 30px;
+  margin: 5px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-icons i:hover {
+  transform: translateY(-10px);
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 10px;
+}
+
+.footera {
+  text-decoration: none;
+}
+
+.footerp {
+  font-size: 15px;
+  color: #fff;
+  margin: 20px 0 0;
+}
+
+@media (min-width: 768px) and (max-width: 1079px) {
+  * {
+    scroll-padding-top: 60px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    padding: 30px;
+  }
+
+  .overlay a {font-size: 30px}
+  .overlay .closebtn {
+    font-size: 50px;
+    top: 15px;
+    right: 35px;
+  }
+
+  .about {
+    height: 100%;
+  }
+
+  .about-section h1 {
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .faq {
+    margin-top: 10px;
+    flex: 1; /* Let the FAQ section occupy the remaining space */
+    max-width: 1000px;
+    margin-right: 80px;
+    margin-left: 80px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #000000;
+    cursor: pointer;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .text {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 30%;
+    height: 40px;
+    font-size: 12px;
+    left: 240px;
+  }
+
+  .input {
+    margin-right: 20px;
+    margin-left: 20px;
+    left: 0;
+    margin-bottom: 15px;
+  }
+
+  .input-box label {
+    left: 20px;
+    padding-left: 20px;
+  }
+
+  .input-box .input:focus ~ label,
+  .input-box .input:valid ~ label {
+    left: 20px;
+    top: -1px;
+    left: 30px;
+}
+}
+
+@media (min-width: 1080px) and (max-width: 1424px)  {
+  * {
+    scroll-padding-top: 60px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    padding: 30px;
+  }
+
+  .overlay a {font-size: 30px}
+  .overlay .closebtn {
+    font-size: 50px;
+    top: 15px;
+    right: 35px;
+  }
+
+  .about {
+    height: 100%;
+  }
+
+  .about-section h1 {
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .faq {
+    margin-top: 10px;
+    flex: 1; /* Let the FAQ section occupy the remaining space */
+    max-width: 900px;
+    margin-right: 100px;
+    margin-left: 100px;
+    right: 100px;
+    left: 100px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #000000;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+  }
+
+  .answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.4rem;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .faq.active .answer {
+    max-height: 300px;
+    width: 800px;
+    animation: fade 1s ease-in-out;
+    justify-content: center;
+    display: flex;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .text {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 30%;
+    height: 40px;
+    font-size: 12px;
+    left: 165px;
+  }
+
+  .input {
+    left: 20px;
+    right: 20px;
+    width: 85%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  * {
+    scroll-padding-top: 60px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    padding: 30px;
+  }
+
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+
+  .about {
+    height: 100%;
+  }
+
+  .about-section h1 {
+    font-size: 36px;
+    margin-top: 50px;
+  }
+
+  .faq {
+    margin-top: 10px;
+    flex: 1; /* Let the FAQ section occupy the remaining space */
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #000000;
+    cursor: pointer;
+  }
+
+  .answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.4rem;
+  }
+  
+  .faq.active .answer {
+    max-height: 300px;
+    width: 800px;
+    animation: fade 1s ease-in-out;
+  }
+  
+  .item {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .text {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 30%;
+    height: 40px;
+    font-size: 12px;
+    left: 80px;
+  }
+
+  .input {
+    width: 70%;
+    margin-bottom: 15px;
+  }
+}
