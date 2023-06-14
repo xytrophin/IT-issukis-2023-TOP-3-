@@ -75,7 +75,7 @@ function getBlogText(blogId) {
     return `
       <p>With the rapid advancement of technology, the world of economics is being revolutionized. From artificial intelligence and blockchain to big data analytics and automation, emerging technologies are reshaping the way businesses operate and transforming entire industries.</p>
       <p>One area where technology has had a profound impact is financial technology, also known as FinTech. The integration of technology in financial services has resulted in innovations such as mobile payment solutions, peer-to-peer lending platforms, robo-advisors, and cryptocurrency.</p>
-      <p>As an aspiring technologist, I am fascinated by the potential of these technologies to enhance efficiency, improve financial inclusion, and drive economic growth. I am eager to explore the latest trends and developments in the intersection of technology and the economy, and I believe that understanding this dynamic relationship is key to shaping a successful future in the digital age.</p>
+      <p>As an aspiring technologist, I am fascinated by the potential of these technologies to enhance efficiency, improve financial inclusion, and drive economic growth.</p>
     `;
   } else if (blogId === 'logistics') {
     return `
